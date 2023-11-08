@@ -17,9 +17,9 @@ class People:
 
         People.num_of_instances += 1 #рахуємо кількість ініціалізацій об'єкта
 
-    @staticmethod
-    def get_num_of_instances():
-        return People.num_of_instances
+    @classmethod
+    def get_num_of_instances(cls):
+        return cls.num_of_instances
 
     def get_full_name(self):
         return self.full_name
