@@ -5,7 +5,7 @@
 # створених об’єктів класу «Людина».
 from datetime import datetime
 class People:
-    num_of_instances = 0  #статичний атрибут класу
+    __num_of_instances = 0  #статичний атрибут класу
 
     def __init__(self, full_name, date_of_birth, contact_phone_number, city, country, home_address):
         self.full_name = full_name
@@ -15,11 +15,11 @@ class People:
         self.country = country
         self.home_address = home_address
 
-        People.num_of_instances += 1 #рахуємо кількість ініціалізацій об'єкта
+        People.__num_of_instances += 1 #рахуємо кількість ініціалізацій об'єкта
 
-    @classmethod
-    def get_num_of_instances(cls):
-        return cls.num_of_instances
+    @staticmethod
+    def get_num_of_instances():
+        return People.__num_of_instances
 
     def get_full_name(self):
         return self.full_name
@@ -89,4 +89,4 @@ else:
 
 difference = abs(person1 - person2)
 print(f"Різниця в: {difference} роках")
-print("Кількість людей: ", People.num_of_instances)
+print("Кількість людей: ", People.get_num_of_instances())
